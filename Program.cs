@@ -24,6 +24,9 @@ namespace MediaLibrary
 
                 if (userChoice == "1") {
                     //Display all movies
+                    foreach (Movie m in movieFile.Movies) {
+                        Console.WriteLine(m.Display());
+                    }
                     Console.WriteLine("Display all movies");
                 } else if (userChoice == "2") {
                     //Add a movie
