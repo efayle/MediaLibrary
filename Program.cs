@@ -65,7 +65,18 @@ namespace MediaLibrary
                     }
                 } else if (userChoice == "3") {
                     //Find movie
-                    Console.WriteLine("Find movie");
+                    Console.WriteLine("Enter movie you want to find:");
+                    string userMovie = Console.ReadLine();
+
+                    var Movies = movieFile.Movies.Where(m => m.title.Contains(userMovie));
+
+                    foreach(Movie m in Movies)
+                    {
+                        Console.WriteLine($"  {m.title}");
+                    }
+
+                    Console.WriteLine($"There are {Movies.Count()} movies");
+
                 }
             } while (userChoice == "1" || userChoice == "2" || userChoice == "3");
 
@@ -87,8 +98,8 @@ namespace MediaLibrary
             // Console.WriteLine($"There are {num} movies from 1921");
 
             // // LINQ - Where filter operator & Contains quantifier operator
-            // var Movies1921 = movieFile.Movies.Where(m => m.title.Contains("(1921)"));
-            // foreach(Movie m in Movies1921)
+             var Movies1921 = movieFile.Movies.Where(m => m.title.Contains("(1921)"));
+             foreach(Movie m in Movies1921)
             // {
             //     Console.WriteLine($"  {m.title}");
             // }
